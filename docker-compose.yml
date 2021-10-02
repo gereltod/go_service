@@ -30,10 +30,8 @@ services:
       - ./client:/app
 
   api:
-    environment:
-      - CHOKIDAR_USEPOLLING=true
     build:
       dockerfile: Dockerfile
       context: .
-     expose:
+    expose:
       - "8080"
