@@ -32,7 +32,7 @@ const Room = (props) => {
 
       webSocketRef.current = new WebSocket(
         //`ws://localhost:8080/join?roomID=${props.match.params.roomID}`
-        `ws://188.166.255.89:8080/join?roomID=${props.match.params.roomID}`
+        `wss://api.tulbur.mn:82/join?roomID=${props.match.params.roomID}`
       );
 
       webSocketRef.current.addEventListener("open", () => {
