@@ -16,6 +16,7 @@ services:
       context: ./nginx
     ports:
       - "81:81"
+      - "82:82"
     volumes:
       - "./ssl/:/var/nginx/"
 
