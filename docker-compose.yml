@@ -14,7 +14,7 @@ services:
       dockerfile: Dockerfile
       context: ./nginx
     ports:
-      - "3050:81"
+      - "81:81"
 
   client:
     stdin_open: true
