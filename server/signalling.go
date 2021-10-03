@@ -22,6 +22,8 @@ func CreateRoomRequestHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 var upgrader = websocket.Upgrader{
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
 	CheckOrigin: func(r *http.Request) bool {
 		return true
 	},
@@ -77,6 +79,8 @@ func JoinRoomRequestHandler(w http.ResponseWriter, r *http.Request) {
 		msg.Client = ws
 		msg.RoomID = roomID[0]
 
+		log.Println(msg.Message)
+		
 		broadcast <- msg
 	}
 }
