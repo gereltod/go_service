@@ -31,14 +31,19 @@ const Room = (props) => {
       userVideo.current.srcObject = stream;
       userStream.current = stream;
 
+      // webSocketRef.current = new WebSocket(
+      //   //`ws://localhost:8080/join?roomID=${props.match.params.roomID}`
+      // );
+
       webSocketRef.current = new WebSocket(
-        //`ws://localhost:8080/join?roomID=${props.match.params.roomID}`
         `wss://api.tulbur.mn:82/join?roomID=${props.match.params.roomID}`
       );
 
       webSocketRef.current.addEventListener("open", () => {
         webSocketRef.current.send(JSON.stringify({ join: true }));
       });
+
+      console.log(webSocketRef.current);
 
       webSocketRef.current.addEventListener("message", async (e) => {
         const message = JSON.parse(e.data);
